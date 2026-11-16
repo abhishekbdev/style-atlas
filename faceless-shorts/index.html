@@ -1,0 +1,302 @@
+<title>Faceless Shorts Styles</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a style catalogue. Index strip of six phone frames, then one spread per style
+   (phone demo left, spec right), then the command sheet. Each spread borrows its style's own accent. */
+:root{
+  --bg:#f3f2ef; --panel:#ffffff; --fg:#17171b; --muted:#5d5c66; --line:#dedcd6; --chip:#ebe9e3;
+  --code-bg:#1d1d23; --code-fg:#ecebf2; --phone:#101014;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:Inter, "Segoe UI", system-ui, sans-serif;
+  --mono:"JetBrains Mono", Consolas, "Courier New", monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121216; --panel:#1b1b21; --fg:#eeedf2; --muted:#a3a2ad; --line:#2d2d35; --chip:#26262e;
+  --code-bg:#0b0b0e; --code-fg:#e6e5ee; --phone:#000; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121216; --panel:#1b1b21; --fg:#eeedf2; --muted:#a3a2ad; --line:#2d2d35; --chip:#26262e;
+  --code-bg:#0b0b0e; --code-fg:#e6e5ee; --phone:#000; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg); color:var(--fg); font:15px/1.6 var(--body);
+  padding-left:max(16px, env(safe-area-inset-left, 0px)); padding-right:max(16px, env(safe-area-inset-right, 0px)); padding-block:0 64px}
+.wrap{max-width:1120px; margin:0 auto}
+h1,h2,h3{font-family:var(--display); text-wrap:balance; margin:0; line-height:1.1}
+code,.mono{font-family:var(--mono); font-size:.86em}
+a{color:inherit}
+
+header{padding-block:48px 28px; display:grid; gap:14px}
+.eyebrow{font:600 12px/1 var(--body); letter-spacing:.12em; text-transform:uppercase; color:var(--muted)}
+h1{font-size:clamp(34px, 6vw, 58px); font-weight:800; letter-spacing:-.02em}
+.lede{max-width:64ch; color:var(--muted); margin:0; font-size:16px}
+.facts{display:flex; flex-wrap:wrap; gap:8px; margin-top:4px}
+.facts span{background:var(--chip); border-radius:999px; padding:4px 12px; font-size:13px}
+
+/* index strip */
+.index{display:grid; grid-template-columns:repeat(6, minmax(0,1fr)); gap:12px; margin-block:8px 56px}
+.index a{text-decoration:none; display:grid; gap:8px}
+.index img{width:100%; aspect-ratio:9/16; object-fit:cover; border-radius:12px; border:3px solid var(--phone); display:block;
+  transition:transform .2s ease}
+.index a:hover img,.index a:focus-visible img{transform:translateY(-4px)}
+.index a:focus-visible{outline:2px solid var(--acc, #4FD1E8); outline-offset:4px; border-radius:12px}
+.index b{font:700 14px/1.2 var(--display)}
+.index small{color:var(--muted); font-size:12px; line-height:1.3}
+@media (max-width:760px){.index{grid-template-columns:repeat(3, minmax(0,1fr))}}
+
+/* style spread */
+.style{display:grid; grid-template-columns:300px minmax(0,1fr); gap:40px; padding-block:44px; border-top:1px solid var(--line); scroll-margin-top:16px}
+@media (max-width:820px){.style{grid-template-columns:minmax(0,1fr); gap:24px}}
+.phone{position:relative; width:100%; max-width:300px; aspect-ratio:9/16; background:var(--phone); border-radius:26px; padding:8px; justify-self:center;
+  box-shadow:0 18px 40px -18px rgba(0,0,0,.45)}
+.phone video{width:100%; height:100%; border-radius:19px; object-fit:cover; display:block; background:#000}
+.demo-note{font-size:12.5px; color:var(--muted); margin-top:12px; max-width:300px; justify-self:center; line-height:1.45}
+.left{display:grid; align-content:start}
+
+.spec{display:grid; gap:18px; min-width:0; align-content:start}
+.title-row{display:flex; flex-wrap:wrap; align-items:baseline; gap:10px 14px}
+.title-row h2{font-size:clamp(28px, 4vw, 40px); font-weight:800; letter-spacing:-.015em}
+.slug{font-family:var(--mono); font-size:13px; padding:3px 10px; border-radius:6px; background:var(--acc); color:var(--acc-ink)}
+.mood{font-size:17px; margin:0; max-width:62ch}
+.meta{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden}
+.meta div{background:var(--panel); padding:10px 14px; min-width:0}
+.meta dt{font:600 11px/1.3 var(--body); letter-spacing:.1em; text-transform:uppercase; color:var(--muted)}
+.meta dd{margin:2px 0 0; font-size:14px}
+@media (max-width:560px){.meta{grid-template-columns:minmax(0,1fr)}}
+h3{font-size:15px; font-weight:700; margin-bottom:8px}
+.rules{margin:0; padding-left:18px; display:grid; gap:5px}
+.rules li::marker{color:var(--acc-mark)}
+.swatches{display:flex; flex-wrap:wrap; gap:10px}
+.sw{display:grid; gap:4px; justify-items:start; font-size:12px; color:var(--muted)}
+.sw i{width:46px; height:30px; border-radius:6px; box-shadow:inset 0 0 0 1px rgba(127,127,127,.35)}
+.sheet{display:block; border-radius:10px; overflow:hidden; border:1px solid var(--line); cursor:zoom-in; padding:0; background:none; width:100%}
+.sheet img{display:block; width:100%; aspect-ratio:16/9; object-fit:cover}
+.ex{font-size:14px; color:var(--muted); margin:0}
+.ex strong{color:var(--fg)}
+
+pre{position:relative; background:var(--code-bg); color:var(--code-fg); border-radius:10px; padding:14px 16px; margin:0; overflow-x:auto; font:13px/1.55 var(--mono)}
+pre .copy{position:absolute; top:8px; right:8px; font:500 11px var(--body); background:rgba(255,255,255,.1); color:var(--code-fg); border:0; border-radius:6px; padding:4px 9px; cursor:pointer}
+pre .copy:focus-visible{outline:2px solid #4FD1E8}
+
+/* per-style accents */
+#deep-dive{--acc:#4FD1E8; --acc-ink:#062a31; --acc-mark:#2bb3cb}
+#night-file{--acc:#C8312B; --acc-ink:#fff; --acc-mark:#C8312B}
+#inside-out{--acc:#FFD43B; --acc-ink:#1A1A1E; --acc-mark:#d6a800}
+#stick-story{--acc:#F2B630; --acc-ink:#1a1408; --acc-mark:#d99a12}
+#paper-atlas{--acc:#9E2A2B; --acc-ink:#fbeedd; --acc-mark:#9E2A2B}
+#tall-tale{--acc:#5DB04A; --acc-ink:#0f230b; --acc-mark:#4c9a3b}
+
+/* commands */
+.howto{border-top:1px solid var(--line); padding-top:44px; display:grid; gap:20px}
+.howto h2{font-size:clamp(26px, 3.6vw, 36px); font-weight:800}
+.steps{display:grid; gap:18px; counter-reset:s}
+.step{display:grid; grid-template-columns:34px minmax(0,1fr); gap:14px}
+.step::before{counter-increment:s; content:counter(s); font:700 15px/34px var(--display); text-align:center; width:34px; height:34px; border-radius:50%; background:var(--chip)}
+.step p{margin:0 0 8px}
+.step > div{min-width:0}
+.pick{width:100%; border-collapse:collapse; font-size:14px}
+.pick td{padding:8px 10px; border-bottom:1px solid var(--line); vertical-align:top}
+.pick td:first-child{color:var(--muted)}
+.tablebox{overflow-x:auto}
+
+dialog{border:0; padding:0; background:transparent; max-width:min(96vw, 1600px)}
+dialog::backdrop{background:rgba(0,0,0,.82)}
+dialog img{display:block; max-width:100%; max-height:90vh; border-radius:8px}
+@media (prefers-reduced-motion: reduce){.index img{transition:none}}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">faceless-shorts skill · 6 styles</div>
+  <h1>Faceless Shorts Styles</h1>
+  <p class="lede">Every style the faceless-shorts skill can make, with its look, its rules and a demo. Each demo is a 10-second block from <em>America Bought Itself</em>, cut on your own narration, so you can compare all six styles on the same voice.</p>
+  <div class="facts"><span>9:16 · 1080×1920 · 30 fps</span><span>All code, no AI images</span><span>Free local Kokoro voice</span><span>Word-synced captions</span><span>$0 per video</span></div>
+</header>
+
+<nav class="index" aria-label="Styles">
+  <a href="#deep-dive" style="--acc:#4FD1E8"><img src="media/deep-dive-poster.jpg" alt="Deep Dive 3D frame"><b>Deep Dive 3D</b><small>what happens if…</small></a>
+  <a href="#night-file" style="--acc:#C8312B"><img src="media/night-file-poster.jpg" alt="Night File 3D frame"><b>Night File 3D</b><small>mysteries, true crime</small></a>
+  <a href="#inside-out" style="--acc:#FFD43B"><img src="media/inside-out-poster.jpg" alt="Inside Out frame"><b>Inside Out</b><small>flat 2D explainers</small></a>
+  <a href="#stick-story" style="--acc:#F2B630"><img src="media/stick-story-poster.jpg" alt="Stick Story frame"><b>Stick Story</b><small>what would you do</small></a>
+  <a href="#paper-atlas" style="--acc:#9E2A2B"><img src="media/paper-atlas-poster.jpg" alt="Paper Atlas frame"><b>Paper Atlas</b><small>history, maps</small></a>
+  <a href="#tall-tale" style="--acc:#5DB04A"><img src="media/tall-tale-poster.jpg" alt="Tall Tale 3D frame"><b>Tall Tale 3D</b><small>funny true stories</small></a>
+</nav>
+
+<!-- DEEP DIVE -->
+<section class="style" id="deep-dive">
+  <div class="left">
+    <div class="phone"><video src="media/deep-dive.mp4" poster="media/deep-dive-poster.jpg" muted loop playsinline controls preload="metadata"></video></div>
+    <p class="demo-note">Demo: the Guano Islands Act block (51–59 s of the America short). Sculpted 3D man, real US flag, gulls, cream island.</p>
+  </div>
+  <div class="spec">
+    <div class="title-row"><h2>Deep Dive 3D</h2><span class="slug">deep-dive</span></div>
+    <p class="mood">The flagship. Sculpted stylised 3D people in warm sunlit sets, glowing x-ray bodies and camera journeys through blood vessels, with shallow focus and a camera that never stops. Curious, shocking, satisfying.</p>
+    <dl class="meta"><div><dt>Best for</dt><dd>Body, health and science “what happens if…?”</dd></div><div><dt>Length</dt><dd>30–45 s</dd></div><div><dt>Captions</dt><dd>1–3 words, white, one yellow word</dd></div></dl>
+    <div><h3>The look</h3><ul class="rules">
+      <li>Three worlds in every video: the real world, the x-ray body, then inside the body, and back out for the ending.</li>
+      <li>Warm low sun outside, cyan inside. X-ray cyan is only for x-ray glass; deep red is for blood.</li>
+      <li>Real three.js 3D: bloom, depth of field, a moving camera on every shot.</li></ul></div>
+    <div><h3>Key colours</h3><div class="swatches">
+      <span class="sw"><i style="background:#4FD1E8"></i>x-ray</span><span class="sw"><i style="background:#B8283A"></i>blood</span><span class="sw"><i style="background:#FFD43B"></i>caption word</span><span class="sw"><i style="background:#F2C98B"></i>warm sun</span></div></div>
+    <button class="sheet" type="button" data-full="media/deep-dive-sheet.jpg" aria-label="Enlarge the Deep Dive 3D style sheet"><img src="media/deep-dive-sheet.jpg" alt="Deep Dive 3D style sheet" loading="lazy"></button>
+    <p class="ex">Bundled example: <strong>What happens if you hold your breath?</strong> · 37 s, 11 shots</p>
+  </div>
+</section>
+
+<!-- NIGHT FILE -->
+<section class="style" id="night-file">
+  <div class="left">
+    <div class="phone"><video src="media/night-file.mp4" poster="media/night-file-poster.jpg" muted loop playsinline controls preload="metadata"></video></div>
+    <p class="demo-note">Demo: the Alaska treaty signed at 4 a.m. (28–40 s). One lamp, a red-lit subject, typewriter date stamp.</p>
+  </div>
+  <div class="spec">
+    <div class="title-row"><h2>Night File 3D</h2><span class="slug">night-file</span></div>
+    <p class="mood">Quiet, uneasy, investigative. Dark 3D places lit by one light source, faceless people, typewriter dates and evidence inserts: case files, tickets, polaroids, red circles, film grain, a slow camera.</p>
+    <dl class="meta"><div><dt>Best for</dt><dd>Unsolved mysteries, true crime, “this happened in 1971”</dd></div><div><dt>Length</dt><dd>30–45 s</dd></div><div><dt>Captions</dt><dd>Typewriter, 2–5 words, one red word</dd></div></dl>
+    <div><h3>The look</h3><ul class="rules">
+      <li>One light per scene; everything else falls into darkness. Lamps have a soft visible cone.</li>
+      <li>Red means the subject. Witnesses are near-black with a thin red rim; nothing else is red except evidence marks.</li>
+      <li>No faces, no gore, no weapons. Facts checked against FBI, court records or major outlets.</li></ul></div>
+    <div><h3>Key colours</h3><div class="swatches">
+      <span class="sw"><i style="background:#0E0E11"></i>darkness</span><span class="sw"><i style="background:#C8312B"></i>subject red</span><span class="sw"><i style="background:#EDE3CC"></i>cream type</span><span class="sw"><i style="background:#E7C27A"></i>lamp</span></div></div>
+    <button class="sheet" type="button" data-full="media/night-file-sheet.jpg" aria-label="Enlarge the Night File 3D style sheet"><img src="media/night-file-sheet.jpg" alt="Night File 3D style sheet" loading="lazy"></button>
+    <p class="ex">Bundled example: <strong>The man who jumped out of a plane</strong> (D.B. Cooper, 1971) · 36 s, 11 shots</p>
+  </div>
+</section>
+
+<!-- INSIDE OUT -->
+<section class="style" id="inside-out">
+  <div class="left">
+    <div class="phone"><video src="media/inside-out.mp4" poster="media/inside-out-poster.jpg" muted loop playsinline controls preload="metadata"></video></div>
+    <p class="demo-note">Demo: the hook (0–11 s). Flat US map with a 3¢ price tag, the law book, the bird-poop island.</p>
+  </div>
+  <div class="spec">
+    <div class="title-row"><h2>Inside Out</h2><span class="slug">inside-out</span></div>
+    <p class="mood">Flat 2D “what happens if…?” shorts. A simple flat hero, x-ray cutaways into the body, organs and props as clean vector shapes, bold captions and a cut every 1–3 seconds with the camera always moving.</p>
+    <dl class="meta"><div><dt>Best for</dt><dd>A lighter, faster take on body and science topics</dd></div><div><dt>Length</dt><dd>25–40 s</dd></div><div><dt>Captions</dt><dd>Bold 1–3 words, one yellow word</dd></div></dl>
+    <div><h3>The look</h3><ul class="rules">
+      <li>Flat shapes only: no gradients, textures or realistic light. Depth comes from darker and lighter tones of one colour.</li>
+      <li>X-ray cyan only for inside-the-body views. Red marks danger or the problem.</li>
+      <li>Yellow is the one keyword per caption, plus impact bursts.</li></ul></div>
+    <div><h3>Palette</h3><div class="swatches">
+      <span class="sw"><i style="background:#E8B89A"></i>skin</span><span class="sw"><i style="background:#E57A8A"></i>organ</span><span class="sw"><i style="background:#D62839"></i>danger</span><span class="sw"><i style="background:#4FD1E8"></i>x-ray</span><span class="sw"><i style="background:#FFD43B"></i>highlight</span><span class="sw"><i style="background:#F4F1EA"></i>background</span><span class="sw"><i style="background:#1A1A1E"></i>ink</span></div></div>
+    <button class="sheet" type="button" data-full="media/inside-out-sheet.jpg" aria-label="Enlarge the Inside Out style sheet"><img src="media/inside-out-sheet.jpg" alt="Inside Out style sheet" loading="lazy"></button>
+    <p class="ex">Bundled example: <strong>What if you swallow gum?</strong> · 30 s, 11 shots</p>
+  </div>
+</section>
+
+<!-- STICK STORY -->
+<section class="style" id="stick-story">
+  <div class="left">
+    <div class="phone"><video src="media/stick-story.mp4" poster="media/stick-story-poster.jpg" muted loop playsinline controls preload="metadata"></video></div>
+    <p class="demo-note">Demo: $7.2 million, Seward's Folly, gold and oil (40–51 s). Stick figure in a snowy Alaska set, gold amount card.</p>
+  </div>
+  <div class="spec">
+    <div class="title-row"><h2>Stick Story</h2><span class="slug">stick-story</span></div>
+    <p class="mood">Tense, clever, a little funny. Black stick people whose big white eyes do the acting, flat illustrated rooms in day and night versions, gold numbered step cards, one picture per clause.</p>
+    <dl class="meta"><div><dt>Best for</dt><dd>Survival, life hacks, “what would you do if…?”</dd></div><div><dt>Length</dt><dd>30–45 s</dd></div><div><dt>Captions</dt><dd>Dark bar, 2–4 words, one gold word</dd></div></dl>
+    <div><h3>The look</h3><ul class="rules">
+      <li>People are always ink black; colour lives in the room. At night they get a soft warm glow.</li>
+      <li>Gold means steps: every step gets a numbered card. Red is danger, green is safe.</li>
+      <li>A cut every 1.5–3 s. The eyes react first, then the body.</li></ul></div>
+    <div><h3>Key colours</h3><div class="swatches">
+      <span class="sw"><i style="background:#111114"></i>people</span><span class="sw"><i style="background:#F2B630"></i>step gold</span><span class="sw"><i style="background:#D62839"></i>danger</span><span class="sw"><i style="background:#2E9E5B"></i>safe</span><span class="sw"><i style="background:#A9D6EC"></i>day sky</span></div></div>
+    <button class="sheet" type="button" data-full="media/stick-story-sheet.jpg" aria-label="Enlarge the Stick Story style sheet"><img src="media/stick-story-sheet.jpg" alt="Stick Story style sheet" loading="lazy"></button>
+    <p class="ex">Bundled example: <strong>What if the power went out for 3 days?</strong> · 34 s, 12 shots</p>
+  </div>
+</section>
+
+<!-- PAPER ATLAS -->
+<section class="style" id="paper-atlas">
+  <div class="left">
+    <div class="phone"><video src="media/paper-atlas.mp4" poster="media/paper-atlas-poster.jpg" muted loop playsinline controls preload="metadata"></video></div>
+    <p class="demo-note">Demo: $15 million, 3¢ an acre, the map doubles (20–28 s). Cut-paper coins, torn caption strip.</p>
+  </div>
+  <div class="spec">
+    <div class="title-row"><h2>Paper Atlas</h2><span class="slug">paper-atlas</span></div>
+    <p class="mood">Storybook, curious, grand. Every shape is cut paper on aged parchment with a light paper edge and a soft shadow: maps with crimson routes, gold date ribbons, wax seals, simple period figures.</p>
+    <dl class="meta"><div><dt>Best for</dt><dd>Historical events, “how X happened”</dd></div><div><dt>Length</dt><dd>30–45 s</dd></div><div><dt>Captions</dt><dd>Serif on torn paper, 2–4 words, one crimson word</dd></div></dl>
+    <div><h3>The look</h3><ul class="rules">
+      <li>Maps first: where, then who, then what. A gold ribbon opens every new era.</li>
+      <li>Crimson only for routes, targets, fire and the key word; gold only for dates, crowns and seals.</li>
+      <li>No battles shown: tell it with objects, places and consequences.</li></ul></div>
+    <div><h3>Key colours</h3><div class="swatches">
+      <span class="sw"><i style="background:#E8D9B5"></i>parchment</span><span class="sw"><i style="background:#9E2A2B"></i>crimson</span><span class="sw"><i style="background:#C9A227"></i>gold</span><span class="sw"><i style="background:#23324A"></i>night wash</span></div></div>
+    <button class="sheet" type="button" data-full="media/paper-atlas-sheet.jpg" aria-label="Enlarge the Paper Atlas style sheet"><img src="media/paper-atlas-sheet.jpg" alt="Paper Atlas style sheet" loading="lazy"></button>
+    <p class="ex">Bundled example: <strong>How one bakery burned down London</strong> (1666) · 41 s, 10 shots</p>
+  </div>
+</section>
+
+<!-- TALL TALE -->
+<section class="style" id="tall-tale">
+  <div class="left">
+    <div class="phone"><video src="media/tall-tale.mp4" poster="media/tall-tale-poster.jpg" muted loop playsinline controls preload="metadata"></video></div>
+    <p class="demo-note">Demo: the diplomats ask Napoleon for New Orleans (11–20 s). 2D cartoon people inside a 3D palace with a real French flag.</p>
+  </div>
+  <div class="spec">
+    <div class="title-row"><h2>Tall Tale 3D</h2><span class="slug">tall-tale</span></div>
+    <p class="mood">Playful, clever, a little cheeky. Flat 2D cartoon people with thick ink outlines, big round white heads and stick limbs, acting inside a sunny, saturated 3D world: small-town streets, wallpapered shops, meadows, trains.</p>
+    <dl class="meta"><div><dt>Best for</dt><dd>Funny or clever true stories, cons, loopholes</dd></div><div><dt>Length</dt><dd>40–60 s</dd></div><div><dt>Captions</dt><dd>One word at a time, white with a black edge</dd></div></dl>
+    <div><h3>The look</h3><ul class="rules">
+      <li>People are 2D, the world is 3D. Every person is a cut-out that turns to the camera and casts a real shadow.</li>
+      <li>Faces do the acting: smug, shock, laugh, worried with sweat, changing on the beat.</li>
+      <li>The camera moves in every shot.</li></ul></div>
+    <div><h3>Key colours</h3><div class="swatches">
+      <span class="sw"><i style="background:#FFFFFF"></i>heads</span><span class="sw"><i style="background:#16161A"></i>ink line</span><span class="sw"><i style="background:#5DB04A"></i>meadow</span><span class="sw"><i style="background:#8E2B2B"></i>wallpaper</span><span class="sw"><i style="background:#8FD0F0"></i>sky</span></div></div>
+    <button class="sheet" type="button" data-full="media/tall-tale-sheet.jpg" aria-label="Enlarge the Tall Tale 3D style sheet"><img src="media/tall-tale-sheet.jpg" alt="Tall Tale 3D style sheet" loading="lazy"></button>
+    <p class="ex">Bundled example: <strong>The girl who was mailed to Grandma</strong> (1914) · 52 s, 21 shots</p>
+  </div>
+</section>
+
+<!-- HOW TO -->
+<section class="howto" id="make-one">
+  <div class="eyebrow">Commands</div>
+  <h2>Make one</h2>
+  <p class="lede" style="color:var(--muted)">Easiest: ask Claude, for example “Make a Night File 3D short about the Dyatlov Pass”. To run it by hand, open Git Bash:</p>
+  <div class="steps">
+    <div class="step"><div><p>Set the paths once per terminal, so everything stays on G: (C: is nearly full).</p>
+<pre><button class="copy" type="button">Copy</button>export FACELESS_HOME=G:/TechCC/.tools/faceless-home HF_HOME=G:/TechCC/.tools/c-moves/.cache_huggingface TEMP=G:/TechCC/.tools/tmp TMP=G:/TechCC/.tools/tmp FPS=30 PYTHONUTF8=1
+SKILL=~/.claude/skills/faceless-shorts; PY=G:/TechCC/.tools/faceless-home/venv/Scripts/python.exe</pre></div></div>
+    <div class="step"><div><p>Start a project from a style's example. Use any slug from above.</p>
+<pre><button class="copy" type="button">Copy</button>bash $SKILL/scripts/new_video.sh deep-dive my-short --dir G:/USA/shorts
+cd G:/USA/shorts/my-short</pre></div></div>
+    <div class="step"><div><p>Write <code>script.json</code> (one line per cut, with <code>caps</code>), then make the voice and word timings. List voices with <code>voice.py --list</code>.</p>
+<pre><button class="copy" type="button">Copy</button>$PY $SKILL/scripts/voice.py . && $PY $SKILL/scripts/words.py .</pre></div></div>
+    <div class="step"><div><p>Edit <code>src/shots.js</code>, then check it, look at a contact sheet, and build the sound.</p>
+<pre><button class="copy" type="button">Copy</button>node tools/capture.mjs check
+node tools/capture.mjs sheet review/all.jpg 0.5 10
+node tools/capture.mjs cues && $PY tools/mix.py .</pre></div></div>
+    <div class="step"><div><p>Render the MP4.</p>
+<pre><button class="copy" type="button">Copy</button>node tools/capture.mjs video renders/my-short.mp4</pre></div></div>
+  </div>
+  <div class="tablebox"><table class="pick"><tbody>
+    <tr><td>Body, health, science “what happens if”</td><td><b>Deep Dive 3D</b>, or <b>Inside Out</b> for a lighter 2D look</td></tr>
+    <tr><td>Creepy, unexplained, true crime</td><td><b>Night File 3D</b></td></tr>
+    <tr><td>Survival, life hacks, “here's what you do”</td><td><b>Stick Story</b></td></tr>
+    <tr><td>A historical event, “how X happened”</td><td><b>Paper Atlas</b></td></tr>
+    <tr><td>A funny or clever true story, a con, a loophole</td><td><b>Tall Tale 3D</b></td></tr>
+  </tbody></table></div>
+</section>
+</div>
+
+<dialog id="zoom"><img alt="Style sheet, full size"></dialog>
+
+<script>
+// play demos muted while on screen
+const vids=[...document.querySelectorAll('.phone video')];
+if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target; if(e.isIntersecting){v.play().catch(()=>{})} else if(v.muted){v.pause()}}),{threshold:.55});
+  vids.forEach(v=>io.observe(v));
+}
+// enlarge style sheets
+const dlg=document.getElementById('zoom'), dimg=dlg.querySelector('img');
+document.querySelectorAll('.sheet').forEach(b=>b.addEventListener('click',()=>{dimg.src=b.dataset.full; dlg.showModal()}));
+dlg.addEventListener('click',()=>dlg.close());
+// copy buttons
+document.querySelectorAll('pre .copy').forEach(btn=>btn.addEventListener('click',()=>{
+  const txt=[...btn.parentNode.childNodes].filter(n=>n!==btn).map(n=>n.textContent).join('').trim();
+  const done=()=>{btn.textContent='Copied'; setTimeout(()=>btn.textContent='Copy',1400)};
+  (navigator.clipboard?navigator.clipboard.writeText(txt):Promise.reject()).then(done,()=>{const r=document.createRange(); r.selectNodeContents(btn.parentNode); const s=getSelection(); s.removeAllRanges(); s.addRange(r)});
+}));
+</script>
